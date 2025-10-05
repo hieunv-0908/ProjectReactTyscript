@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+    .login-form-container {
+        width: 90% !important;
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .login-form-container label {
+        font-size: 14px;
+    }
+
+    .login-form-container input,
+    .login-form-container .ant-input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login-form-container button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .login-form-container a {
+        font-size: 13px;
+    }
+
+    .login-form-container div {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}
