@@ -1,0 +1,14 @@
+.ant-notification-notice-success {
+    background-color: #333E5A;
+    /* border-left: 4px solid #13c2c2; */
+}
+
+/* đổi màu chữ tiêu đề và nội dung */
+ .ant-notification-notice-success .ant-notification-notice-message {
+    color: #ffff !important;
+    font-weight: 600;
+}
+
+.ant-notification-notice-success .ant-notification-notice-description {
+    color: #ffff !important;
+} 
