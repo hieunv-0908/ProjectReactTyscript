@@ -1,0 +1,38 @@
+.header {
+    border: none !important;
+}
+
+.header h1 {
+    word-spacing: 10px;
+    border: none !important;
+    color: #101828 !important;
+}
+
+.header span {
+    word-spacing: 5px;
+    border: none !important;
+    color: #667085 !important;
+}
+
+
+.form-checkbox span {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: #344054;
+}
+
+.form-checkbox a {
+    font-weight: 600;
+    font-style: Semi Bold;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+
+}
+
+.form-checkbox a {
+    text-decoration: none;
+    color: #007AFF;
+}

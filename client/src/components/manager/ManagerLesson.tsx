@@ -14,9 +14,6 @@ import {
     CloseOutlined,
     CloseCircleFilled,
     AppstoreFilled,
-    BellFilled,
-    QuestionCircleFilled,
-    SettingFilled,
 } from "@ant-design/icons";
 import {
     Button,
@@ -39,27 +36,33 @@ import { Footer } from "antd/es/layout/layout";
 import Radio from "antd/es/radio/radio";
 import "../../css/radio.css"
 import "../../css/notification.css"
-import "../../css/tabelMNGS.css"
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Checkbox from "antd/es/checkbox/Checkbox";
+import { Link, useLocation } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 const { Option } = Select;
 
-const ManagerSubject: React.FC = () => {
+const ManagerLesson: React.FC = () => {
     const [collapsed, setCollapsed] = useState(false);
     const { token: { colorBgContainer, borderRadiusLG }, } = theme.useToken();
     // ----------------------------------------------------------------------------------------
     const [sortOrder, setSortOrder] = useState<string>("");
     const [open, setOpen] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     const [modalInputFocus, setModalInputFocus] = useState<boolean>(false);
     const [subjectInput, setSubjectInput] = useState<string>("");
     const [isEdit, setIsEdit] = useState<boolean>(false);
     const [isDelete, setIsDelete] = useState<boolean>(false);
-    const [navigation] = useNavigate()
     const location = useLocation();
+
     // ----------------------------------------------------------------------------------------
     const showLoading = () => {
         setOpen(true);
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
     };
     // -----------------------------------------------------------------------------------------
 
@@ -80,40 +83,48 @@ const ManagerSubject: React.FC = () => {
     const columns = [
         {
             title: (
+                <Checkbox ></Checkbox>
+            ),
+            dataIndex: "name",
+            key: "name",
+            render: () => (
+                <Checkbox ></Checkbox>
+            )
+        },
+        {
+            title: (
                 <div
                     style={{ cursor: "pointer", userSelect: "none" }}
                     onClick={() => {
                         setSortOrder(sortOrder === "ascend" ? "descend" : "ascend");
                     }}
                 >
-                    Tên môn học {sortOrder === "ascend" ? <ArrowUpOutlined /> : sortOrder === "descend" ? <ArrowDownOutlined /> : <><ArrowUpOutlined /> <ArrowDownOutlined /></>}
+                    Tên bài học {sortOrder === "ascend" ? <ArrowUpOutlined /> : sortOrder === "descend" ? <ArrowDownOutlined /> : <><ArrowUpOutlined /> <ArrowDownOutlined /></>}
                 </div>
             ),
             dataIndex: "name",
             key: "name",
             sorter: (a, b) => a.name.localeCompare(b.name),
-            sortDirection: ['ascend', 'descend'],
+            sortDirection: ['ascend', 'descend']
         },
         {
             title: "Trạng thái",
             dataIndex: "status",
             key: "status",
-            width: 100,
             render: (status: string) =>
                 status === "active" ? (
-                    <Tag color="green" style={{ borderRadius: "9999px" }}><span style={{
+                    <Tag color="green" style={{ borderRadius: "9999px", display: "flex", gap: "8px", alignItems: "center", justifyContent: "center", width: "45%", height: "25px" }}><span style={{
                         fontSize: "20px",
                     }}>&#8226;</span> Đang hoạt động</Tag>
                 ) : (
-                    <Tag color="red" style={{ borderRadius: "9999px" }}  > <span style={{
+                    <Tag color="red" style={{ borderRadius: "9999px", display: "flex", gap: "8px", alignItems: "center", justifyContent: "center", width: "45%", height: "25px" }}><span style={{
                         fontSize: "20px",
-                    }}>&#8226;</span> Ngừng hoạt động</Tag >
+                    }}>&#8226;</span> Ngừng hoạt động</Tag>
                 ),
         },
         {
             title: "Chức năng",
             key: "action",
-            width: 300,
             render: () => (
                 <Space>
                     <Button type="text" danger onClick={() => { setIsDelete(true); setIsEdit(false); showLoading() }}>
@@ -162,13 +173,14 @@ const ManagerSubject: React.FC = () => {
 
                     <Menu
                         mode="inline"
-                        theme=""
+                        theme="light"
                         defaultSelectedKeys={["2"]}
                         items={[
                             { key: "1", icon: <Link to={""}><RiseOutlined /></Link>, label: "Thống kê" },
                             { key: "2", icon: <Link to={"/manager/subject"}><BookOutlined /></Link>, label: "Quản lý môn học" },
                             { key: "3", icon: <Link to={"/manager/lesson"}><CopyOutlined /></Link>, label: "Quản lý bài học" },
                         ]}
+                        style={{ backgroundColor: "#f0f2f5" }}
                     />
                 </Sider>
 
@@ -195,54 +207,43 @@ const ManagerSubject: React.FC = () => {
                             justifyContent: "center"
                         }}>
                             <Badge count={3}>
-                                <BellFilled style={{ fontSize: 22 }} />
+                                <BellOutlined style={{ fontSize: 22 }} />
                             </Badge>
-                            <QuestionCircleFilled style={{ fontSize: 22 }} />
-                            <SettingFilled style={{ fontSize: 22 }} />
+                            <SettingOutlined style={{ fontSize: 22 }} />
                             <Avatar style={{
                                 fontSize: "12px",
                                 marginBottom: "10px"
                             }} src="https://i.pravatar.cc/300" />
                         </Space>
                     </Header>
+
                     {/* Content */}
                     <Content
                         style={{
                             padding: "24px",
                             minHeight: 280,
                             background: colorBgContainer,
-                            borderTop: "1px solid #E5E9EB"
                         }}
                     >
                         <div
                             style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}
                         >
-                            <h1>Môn học</h1>
+                            <h2>Môn học</h2>
                             <Space style={{
                                 display: "flex",
                                 flexDirection: "column",
-                                alignItems: "end",
-                                gap: "15px",
-                                // border: "1px solid",
-                                width: "30%"
-
+                                gap: "8px"
                             }}>
                                 <div style={{
                                     display: "flex",
-                                    gap: "30px",
+                                    gap: "15px"
                                 }}>
-                                    <Select defaultValue="all" style={{ width: 300, height: 45 }}>
+                                    <Select defaultValue="all" style={{ width: 160 }}>
                                         <Option value="all">Lọc theo trạng thái</Option>
                                         <Option value="active">Đang hoạt động</Option>
                                         <Option value="inactive">Ngừng hoạt động</Option>
                                     </Select>
-                                    <Button type="primary" style={{ width: "50%", height: 45 }} onClick={() => { showLoading(); setIsEdit(false); setIsDelete(false) }}>Thêm mới môn học</Button>
-                                </div>
-                                <div>
-                                    <Input.Search
-                                        placeholder="Tìm kiếm môn học theo tên..."
-                                        style={{ marginBottom: 16, maxWidth: 300, width: 300 }}
-                                    />
+                                    <Button type="primary" onClick={() => { showLoading(); setIsEdit(false); setIsDelete(false) }}>Thêm mới môn học</Button>
                                 </div>
                             </Space>
                         </div>
@@ -267,6 +268,7 @@ const ManagerSubject: React.FC = () => {
                     title={<span>Thêm mới môn học</span>}
                     open={open}
                     onCancel={() => setOpen(false)}
+                    loading={loading}
                     footer={[
                         <Button key="cancel" onClick={() => setOpen(false)}>
                             Huỷ
@@ -307,6 +309,7 @@ const ManagerSubject: React.FC = () => {
                         title={<span>Cập nhật môn học</span>}
                         open={open}
                         onCancel={() => setOpen(false)}
+                        loading={loading}
                         footer={[
                             <Button key="cancel" onClick={() => setOpen(false)}>
                                 Huỷ
@@ -348,17 +351,18 @@ const ManagerSubject: React.FC = () => {
                         title={<span><ExclamationCircleOutlined style={{ color: '#D92D20', fontSize: 24 }} /></span>}
                         open={open}
                         onCancel={() => setOpen(false)}
+                        loading={loading}
                         footer={[
                             <div style={{
                                 borderTop: "1px solid #E4E4E7",
                                 display: "flex",
-                                gap: "9px",
+                                gap: "4px",
                                 justifyContent: "end"
                             }}>
-                                <Button key="cancel" style={{ width: "15%", height: 40 }} onClick={() => setOpen(false)}>
+                                <Button key="cancel" onClick={() => setOpen(false)}>
                                     Huỷ
                                 </Button>,
-                                <Button key="submit" style={{ width: "15%", height: 40 }} type="primary" danger onClick={() => {
+                                <Button key="submit" type="primary" danger onClick={() => {
                                     console.log("Xác nhận xoá môn học");
                                     notification.success(
                                         {
@@ -387,4 +391,4 @@ const ManagerSubject: React.FC = () => {
     );
 };
 
-export default ManagerSubject;
+export default ManagerLesson;

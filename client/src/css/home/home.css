@@ -1,0 +1,277 @@
+/* ===================== HEADER ===================== */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    background: #fff;
+    height: 88px;
+    width: 100%;
+    border-width: 1px;
+    padding-top: 16px;
+    padding-right: 160px;
+    padding-bottom: 16px;
+    padding-left: 160px;
+    opacity: 1;
+}
+
+.menu {
+    width: 400px;
+    border: none;
+    flex: 1;
+    display: flex;
+    gap: 52px;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.menu .navLink {
+    cursor: pointer;
+    opacity: 0.3;
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu .navLink.active {
+    opacity: 1;
+    color: black;
+}
+
+.menu :hover {
+    border-bottom: 1px solid black;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 20px;
+    color: #444;
+    cursor: pointer;
+    /* border: 1px solid; */
+}
+
+.header-icons>*:hover {
+    color: #000;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+/* ===================== CONTENT ===================== */
+.home-content {
+    width: 100%;
+    height: 1000px;
+    padding-top: 48px;
+    padding-right: 160px;
+    padding-bottom: 48px;
+    padding-left: 15.7%;
+    display: flex;
+    gap: 32px;
+    opacity: 1;
+    top: 88px;
+    left: -3px;
+    background-color: #fff;
+    /* border: 1px solid; */
+}
+
+.ant-tabs-nav {
+    width: 1123px;
+    height: 32px;
+    gap: 32px;
+
+    /* border: 2px solid red; */
+}
+
+.ant-tabs-tab {
+    width: 130px;
+    height: 32px;
+    font-weight: 400 !important;
+    font-style: Regular !important;
+    font-size: 18px !important;
+    line-height: 32px !important;
+    letter-spacing: 0% !important;
+    text-align: center;
+    color: #8B8B8B !important;
+    /* padding: 8px 16px !important; */
+    /* border: 2px solid blue !important;   */
+}
+
+.ant-tabs-tab:hover {
+    color: #000 !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #000 !important;
+    font-weight: 600;
+    /* border: 2px solid yellow !important; */
+
+}
+
+.ant-tabs-ink-bar {
+    background: #000 !important;
+    /* border: 2px solid violet !important; */
+
+}
+
+.ant-tabs-top>.ant-tabs-nav::before {
+    border-bottom: none !important;
+    /* border: 2px solid violet !important; */
+}
+
+.ant-tabs .ant-tabs-nav-list {
+    /* border: 2px solid violet !important; */
+}
+
+.ant-tabs .ant-tabs-content {
+    /* border: 2px solid violet !important; */
+}
+
+.ant-tabs .ant-tabs-tabpane {
+    /* width: 100%; */
+    height: auto;
+    max-height: 780px;
+    /* border: 2px solid rgb(6, 197, 255) !important; */
+    overflow: auto;
+    /* padding: 10px; */
+}
+
+.ant-tabs .ant-tabs-tabpane.ant-tabs-tabpane-active {
+    /* border: 2px solid rgb(146, 1, 115) !important ; */
+    /* background: transparent; */
+}
+
+
+
+/* ===================== COURSE CARD ===================== */
+.course-card {
+    width: 330px;
+    border-radius: 10px;
+    height: 100%;
+    background: #fff;
+    border: 1px solid #bbb6b6;
+    transition: 0.25s;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.course-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.course-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 8px;
+}
+
+.course-card li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #444;
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.course-card li svg {
+    /* color: #888; */
+}
+
+.course-card .empty {
+    color: #aaa;
+    text-align: center;
+    padding: 36px 0;
+    font-size: 15px;
+}
+
+.view-more {
+    display: inline-block;
+    margin-top: 6px;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+    background: #000;
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+    align-items: start;
+    padding: 50px 40px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-section {
+    max-width: 400px;
+    margin: 15px;
+    /* border: 1px solid white; */
+}
+
+.footer-section h4 {
+    margin-bottom: 14px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin: 6px 0;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.footer-section p:hover {
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 14px;
+    font-size: 18px;
+}
+
+.social-icons>* {
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.2s;
+}
+
+.social-icons>*:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 20px;
+    }
+
+    .home-content {
+        padding: 20px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
