@@ -12,27 +12,6 @@
       "password": "12345678",
       "phone_number": "0988787671",
       "created_at": "2021-01-01T00:00:00Z"
-    },
-    {
-      "id": "035c",
-      "first_name": "Nguyễn Trọng",
-      "last_name": "Vương",
-      "email": "vuong@gmail.com",
-      "password": "123456789"
-    },
-    {
-      "id": "d204",
-      "first_name": "Nguyễn Trọng",
-      "last_name": "Vương",
-      "email": "vuong@gmail.com",
-      "password": "12345678910"
-    },
-    {
-      "id": "1123",
-      "first_name": "Lê Bá",
-      "last_name": "Duy",
-      "email": "Duy@gmail.com",
-      "password": "duy12345678"
     }
   ],
   "subjects": [

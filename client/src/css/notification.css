@@ -4,11 +4,11 @@
 }
 
 /* đổi màu chữ tiêu đề và nội dung */
- .ant-notification-notice-success .ant-notification-notice-message {
+.ant-notification-notice-success .ant-notification-notice-message {
     color: #ffff !important;
     font-weight: 600;
 }
 
 .ant-notification-notice-success .ant-notification-notice-description {
     color: #ffff !important;
-} 
+}

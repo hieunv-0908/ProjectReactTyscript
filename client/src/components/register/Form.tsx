@@ -40,7 +40,7 @@ function Form() {
     const [isFocusName, setIsFocusName] = useState<boolean>(false)
     const [isFocusEmail, setIsFocusEmail] = useState<boolean>(false)
     const [isFocusPass, setIsFocusPass] = useState<boolean>(false)
-    const navigation = useNavigate()
+    const navigate = useNavigate()
 
     const [checkbox, setCheckbox] = useState<boolean>(false);
     useEffect(() => {
@@ -194,7 +194,7 @@ function Form() {
                         }
                     )
                     setTimeout(() => {
-                        navigation("/login")
+                        navigate("/login")
                     }, 1000)
                     dispatch(registerUser({ first_name: surname, last_name: name, email: email, password: pass }))
                     setCheckbox(false)
