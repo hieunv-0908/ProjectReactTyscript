@@ -14,8 +14,7 @@ function Register() {
       width: '100%',
       paddingTop: "96px",
       paddingBottom: "96px",
-      backgroundColor:"#fff"
-      // border:"1px solid"
+      backgroundColor: "#fff"
     }}>
       <Header></Header>
       <Form></Form>

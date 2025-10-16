@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 export default function App() {
@@ -7,10 +6,8 @@ export default function App() {
       width: '100%',
       height: '100%',
       overflow: "auto",
-      // border:"1px solid"
     }}>
       <Outlet></Outlet>
-      {/* <Login></Login> */}
     </div>
   )
 }

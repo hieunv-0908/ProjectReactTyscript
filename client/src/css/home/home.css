@@ -1,27 +1,28 @@
 /* ===================== HEADER ===================== */
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #eaeaea;
+.header-home {
+    display: flex !important;
+    gap: 15px;
+    justify-content: center !important;
+    align-items: center !important;
+    border-bottom: 1px solid #eaeaea !important;
     background: #fff;
-    height: 88px;
-    width: 100%;
-    border-width: 1px;
-    padding-top: 16px;
-    padding-right: 160px;
-    padding-bottom: 16px;
-    padding-left: 160px;
+    height: 88px !important;
+    width: 100% !important;
+    border-width: 1px !important;
+    /* padding-top: 16px !important;
+    padding-right: 160px !important;
+    padding-bottom: 16px !important;
+    padding-left: 160px !important; */
     opacity: 1;
 }
 
 .menu {
-    width: 400px;
+    width: 500px;
     border: none;
     flex: 1;
     display: flex;
-    gap: 52px;
-    justify-content: center;
+    gap: 30px;
+    justify-content: start;
     font-weight: 500;
 }
 
@@ -43,12 +44,12 @@
 }
 
 .header-icons {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    font-size: 20px;
-    color: #444;
-    cursor: pointer;
+    display: flex !important;
+    justify-content: start !important;
+    gap: 50px;
+    font-size: 20px !important;
+    color: #444 !important;
+    cursor: pointer !important;
     /* border: 1px solid; */
 }
 

@@ -1,43 +1,88 @@
-import React from "react";
-import { Tabs, Row, Col } from "antd";
+import React, { useEffect, useMemo } from "react";
+import { Tabs, Spin } from "antd";
 import CourseCard from "./CourseCard";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "../../../redux/store/store";
+import { fetchSubject } from "../../../redux/feature/subject/subjectSlice";
+import { fetLesson } from "../../../redux/feature/lesson/lessonSlice";
 
-interface Course {
-    title: string;
-    sessions: string[];
+interface CourseTabsProps {
+  searchTerm: string;
 }
 
-const courses: Course[] = [
-    { title: "HTML cơ bản", sessions: ["Tổng quan về HTML", "The Inline và Block", "Hình ảnh", "Thẻ chuyển trang", "The Semantic"] },
-    { title: "CSS cơ bản", sessions: ["Tổng quan về CSS", "Nhúng CSS", "Position", "Flexbox", "Animation"] },
-    { title: "JavaScript cơ bản", sessions: ["Tổng quan JS", "Biến", "Câu lệnh điều kiện", "Vòng lặp", "Mảng"] },
-    { title: "Lập trình với React.js", sessions: ["Tổng quan", "Props, State, Event", "React hook", "UI Framework", "React Router"] },
-    { title: "Lập trình với Java", sessions: ["Tổng quan Java", "Khai báo biến", "Câu lệnh điều kiện", "Vòng lặp", "Mảng"] },
+const CourseTabs: React.FC<CourseTabsProps> = ({ searchTerm }) => {
+  const dispatch = useDispatch<AppDispatch>();
 
-    { title: "Lập trình C", sessions: [] },
-];
+  const { subjects, loading: subjectLoading } = useSelector(
+    (state: RootState) => state.subject
+  );
+  const { data: lessons, loading: lessonLoading } = useSelector(
+    (state: RootState) => state.lesson
+  );
 
-const CourseTabs: React.FC = () => {
-    const tabItems = [
-        {
-            key: "1",
-            label: "Tất cả môn học",
-            children: (
-                <div className="container_items" style={{ display: 'flex', flexWrap: "wrap", gap: "8px", width: "1400px" }}>
-                    {courses.map((course, i) => (
-                        <div className="item" style={{ display: "flex", marginTop:"20px" }}>
-                            <CourseCard {...course} />
-                        </div>
-                    ))
-                    }
-                </div >
-            ),
-        },
-        { key: "2", label: "Đã hoàn thành", children: <div>Chưa có dữ liệu</div> },
-        { key: "3", label: "Chưa hoàn thành", children: <div>Chưa có dữ liệu</div> },
-    ];
+  useEffect(() => {
+    dispatch(fetchSubject());
+    dispatch(fetLesson());
+  }, [dispatch]);
 
-    return <Tabs defaultActiveKey="1" items={tabItems} />;
+  const courses = useMemo(() => {
+    return subjects.map((subject) => {
+      const subjectLessons = lessons
+        .filter((lesson) => String(lesson.subject_id) === String(subject.id))
+        .map((lesson) => lesson.lesson_name);
+
+      return {
+        title: subject.subject_name,
+        sessions: subjectLessons,
+      };
+    });
+  }, [subjects, lessons]);
+
+  // ✅ Lọc theo searchTerm (không phân biệt hoa thường)
+  const filteredCourses = useMemo(() => {
+    const term = searchTerm.trim().toLowerCase();
+    if (!term) return courses;
+    return courses.filter(
+      (course) =>
+        course.title.toLowerCase().includes(term) ||
+        course.sessions.some((s) => s.toLowerCase().includes(term))
+    );
+  }, [courses, searchTerm]);
+
+  if (subjectLoading || lessonLoading) {
+    return (
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <Spin tip="Đang tải dữ liệu..." />
+      </div>
+    );
+  }
+
+  const tabItems = [
+    {
+      key: "1",
+      label: "Tất cả môn học",
+      children: (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "16px",
+            padding: "16px",
+          }}
+        >
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((course, index) => (
+              <CourseCard key={index} {...course} />
+            ))
+          ) : (
+            <p>Không tìm thấy kết quả nào.</p>
+          )}
+        </div>
+      ),
+    },
+  ];
+
+  return <Tabs defaultActiveKey="1" items={tabItems} />;
 };
 
 export default CourseTabs;

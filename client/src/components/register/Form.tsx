@@ -84,6 +84,7 @@ function Form() {
                     <Input type='text' value={surname} onFocus={() => {
                         setIsFocusSurname(true)
                     }} onBlur={() => { setIsFocusSurname(false) }} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setSurname(e.target.value) }} style={{ height: "45px", fontSize: "16px", width: "100% ", border: `${isFocusSurname && surname.length === 0 ? "1px solid red" : ""}` }} />
+                    {isFocusSurname && surname.length === 0 ? <span style={{ color: "red" }}>Họ và tên đệm không được để trống</span> : <></>}
                 </label>
                 <label style={{
                     display: 'flex',
@@ -95,6 +96,7 @@ function Form() {
                     <Input value={name} onFocus={() => {
                         setIsFocusName(true)
                     }} onBlur={() => { setIsFocusName(false) }} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setName(e.target.value) }} type="text" style={{ height: "45px", fontSize: "16px", width: "100%", border: `${isFocusName && name.length === 0 ? "1px solid red" : ""}` }} />
+                    {isFocusName && name.length === 0 ? <span style={{ color: "red" }}>Tên không được để trống</span> : <></>}
                 </label>
             </div>
             <div style={{ width: "100%" }}>
@@ -107,6 +109,7 @@ function Form() {
                     <Input value={email} onFocus={() => {
                         setIsFocusEmail(true)
                     }} onBlur={() => { setIsFocusEmail(false) }} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setEmail(e.target.value) }} type="email" placeholder='you@company.com' style={{ height: "45px", fontSize: "16px", border: `${isFocusEmail && email.length === 0 ? "1px solid red" : ""}` }} />
+                    {isFocusEmail ? (email.length === 0 ? <span style={{ color: "red" }}>Email không được để trống</span> : (validateEmail(email) ? <></> : <span style={{ color: "red" }}>Email không đúng định dạng!</span>)) : <></>}
                 </label>
             </div>
             <div style={{ width: "100%" }}>
@@ -119,6 +122,8 @@ function Form() {
                     <Input value={pass} onFocus={() => {
                         setIsFocusPass(true)
                     }} onBlur={() => { setIsFocusPass(false) }} onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setPass(e.target.value) }} type="password" style={{ height: "45px", fontSize: "16px", border: `${isFocusPass && pass.length === 0 ? "1px solid red" : ""}` }} />
+                    {isFocusPass ? (pass.length === 0 ? <span style={{ color: "red" }}>Pass không được để trống</span> : (validatePass(pass) ? <></> : <span style={{ color: "red" }}>Pass phải trên 8 ký tự !</span>)) : <></>}
+
                 </label>
             </div>
             <div className="form-checkbox" style={{

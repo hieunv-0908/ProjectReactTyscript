@@ -5,43 +5,388 @@
       "first_name": "Nguyễn Văn",
       "last_name": "Nam",
       "gender": 0,
-      "date_of_birth": "20/02/2023",
+      "date_of_birth": "2001-02-20",
       "address": "Thanh Xuân, Hà Nội",
-      "avatar": "https://example.com/avatar.jpg",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
       "email": "nvnam@gmail.com",
       "password": "12345678",
       "phone_number": "0988787671",
       "created_at": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "2",
+      "first_name": "Trần Thị",
+      "last_name": "Hoa",
+      "gender": 1,
+      "date_of_birth": "1999-05-10",
+      "address": "Ba Đình, Hà Nội",
+      "avatar": "https://randomuser.me/api/portraits/women/68.jpg",
+      "email": "tranhoa@gmail.com",
+      "password": "abcdef12",
+      "phone_number": "0912123456",
+      "created_at": "2021-02-15T00:00:00Z"
+    },
+    {
+      "id": "3",
+      "first_name": "Lê",
+      "last_name": "Hùng",
+      "gender": 0,
+      "date_of_birth": "2002-08-21",
+      "address": "Hải Châu, Đà Nẵng",
+      "avatar": "https://randomuser.me/api/portraits/men/75.jpg",
+      "email": "lehung2002@gmail.com",
+      "password": "hung12345",
+      "phone_number": "0977334455",
+      "created_at": "2021-05-02T00:00:00Z"
+    },
+    {
+      "id": "4",
+      "first_name": "Phạm",
+      "last_name": "Tú",
+      "gender": 1,
+      "date_of_birth": "2000-11-30",
+      "address": "Ninh Kiều, Cần Thơ",
+      "avatar": "https://randomuser.me/api/portraits/women/29.jpg",
+      "email": "tupham@gmail.com",
+      "password": "tupham99",
+      "phone_number": "0909876543",
+      "created_at": "2021-08-10T00:00:00Z"
     }
   ],
   "subjects": [
     {
       "id": "1",
-      "subject_name": "HTML, CSS",
+      "subject_name": "HTML, CSS, JAVA",
+      "active": false,
       "created_at": "2022-03-01T00:00:00.000Z"
     },
     {
       "id": "2",
       "subject_name": "Javascript",
+      "active": false,
       "created_at": "2022-03-01T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "subject_name": "Typescript",
+      "active": true,
+      "created_at": "2022-03-01T00:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "subject_name": "Scratch",
+      "active": false,
+      "created_at": "2022-03-01T00:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "subject_name": "Cấu trúc dữ liệu và giải thuật",
+      "active": false,
+      "created_at": "2022-03-01T00:00:00.000Z"
+    },
+    {
+      "id": "5b43",
+      "subject_name": "Lập trình front-end React",
+      "active": true,
+      "created_at": "2025-10-14T14:05:34Z"
+    },
+    {
+      "id": "6459",
+      "subject_name": "Lập trình mạng",
+      "active": true,
+      "created_at": "2025-10-15T23:39:01Z"
+    },
+    {
+      "id": "7890",
+      "subject_name": "Cơ sở dữ liệu",
+      "active": true,
+      "created_at": "2024-04-12T08:15:00Z"
+    },
+    {
+      "id": "9901",
+      "subject_name": "Lập trình hướng đối tượng (OOP)",
+      "active": false,
+      "created_at": "2023-06-22T10:45:00Z"
+    },
+    {
+      "id": "1123",
+      "subject_name": "Kỹ năng mềm và làm việc nhóm",
+      "active": true,
+      "created_at": "2025-03-18T09:20:00Z"
     }
   ],
   "lessons": [
     {
-      "id": "1",
-      "subject_id": 1,
-      "lesson_name": "Bài học 1",
+      "id": "L1",
+      "subject_id": "1",
+      "lesson_name": "Giới thiệu về HTML",
       "time": 60,
-      "status": "incomplete",
-      "created_at": "2022-03-01T00:00:00.000Z"
+      "status": "complete",
+      "created_at": "2024-01-01T09:00:00Z"
     },
     {
-      "id": "2",
-      "subject_id": 2,
-      "lesson_name": "Bài học 2",
+      "id": "L2",
+      "subject_id": "1",
+      "lesson_name": "Cấu trúc trang web cơ bản",
+      "time": 75,
+      "status": "incomplete",
+      "created_at": "2024-01-02T09:00:00Z"
+    },
+    {
+      "id": "L3",
+      "subject_id": "1",
+      "lesson_name": "CSS cơ bản",
       "time": 90,
-      "status": "completed",
-      "created_at": "2022-03-01T00:00:00.000Z"
+      "status": "incomplete",
+      "created_at": "2024-01-03T09:00:00Z"
+    },
+    {
+      "id": "L4",
+      "subject_id": "1",
+      "lesson_name": "Giới thiệu về Java",
+      "time": 120,
+      "status": "incomplete",
+      "created_at": "2024-01-04T09:00:00Z"
+    },
+    {
+      "id": "L5",
+      "subject_id": "2",
+      "lesson_name": "Cú pháp cơ bản của JS",
+      "time": 45,
+      "status": "complete",
+      "created_at": "2024-02-01T09:00:00Z"
+    },
+    {
+      "id": "L6",
+      "subject_id": "2",
+      "lesson_name": "Kiểu dữ liệu và biến",
+      "time": 60,
+      "status": "complete",
+      "created_at": "2024-02-02T09:00:00Z"
+    },
+    {
+      "id": "L7",
+      "subject_id": "2",
+      "lesson_name": "Vòng lặp và điều kiện",
+      "time": 70,
+      "status": "incomplete",
+      "created_at": "2024-02-03T09:00:00Z"
+    },
+    {
+      "id": "L8",
+      "subject_id": "2",
+      "lesson_name": "DOM Manipulation",
+      "time": 80,
+      "status": "incomplete",
+      "created_at": "2024-02-04T09:00:00Z"
+    },
+    {
+      "id": "L9",
+      "subject_id": "3",
+      "lesson_name": "Giới thiệu TypeScript",
+      "time": 60,
+      "status": "complete",
+      "created_at": "2024-03-01T09:00:00Z"
+    },
+    {
+      "id": "L10",
+      "subject_id": "3",
+      "lesson_name": "Interface và Class",
+      "time": 90,
+      "status": "complete",
+      "created_at": "2024-03-02T09:00:00Z"
+    },
+    {
+      "id": "L11",
+      "subject_id": "3",
+      "lesson_name": "Generics nâng cao",
+      "time": 100,
+      "status": "incomplete",
+      "created_at": "2024-03-03T09:00:00Z"
+    },
+    {
+      "id": "L12",
+      "subject_id": "4",
+      "lesson_name": "Làm quen với Scratch",
+      "time": 45,
+      "status": "complete",
+      "created_at": "2024-04-01T09:00:00Z"
+    },
+    {
+      "id": "L13",
+      "subject_id": "4",
+      "lesson_name": "Điều khiển nhân vật",
+      "time": 60,
+      "status": "incomplete",
+      "created_at": "2024-04-02T09:00:00Z"
+    },
+    {
+      "id": "L14",
+      "subject_id": "4",
+      "lesson_name": "Tạo hoạt ảnh",
+      "time": 75,
+      "status": "incomplete",
+      "created_at": "2024-04-03T09:00:00Z"
+    },
+    {
+      "id": "L15",
+      "subject_id": "5",
+      "lesson_name": "Giới thiệu cấu trúc dữ liệu",
+      "time": 60,
+      "status": "complete",
+      "created_at": "2024-05-01T09:00:00Z"
+    },
+    {
+      "id": "L16",
+      "subject_id": "5",
+      "lesson_name": "Danh sách liên kết",
+      "time": 90,
+      "status": "incomplete",
+      "created_at": "2024-05-02T09:00:00Z"
+    },
+    {
+      "id": "L17",
+      "subject_id": "5",
+      "lesson_name": "Cây nhị phân",
+      "time": 120,
+      "status": "incomplete",
+      "created_at": "2024-05-03T09:00:00Z"
+    },
+    {
+      "id": "L18",
+      "subject_id": "5b43",
+      "lesson_name": "React Components & Props",
+      "time": 80,
+      "status": "complete",
+      "created_at": "2024-06-01T09:00:00Z"
+    },
+    {
+      "id": "L19",
+      "subject_id": "5b43",
+      "lesson_name": "Hooks cơ bản",
+      "time": 100,
+      "status": "complete",
+      "created_at": "2024-06-02T09:00:00Z"
+    },
+    {
+      "id": "L20",
+      "subject_id": "5b43",
+      "lesson_name": "Quản lý state với useReducer",
+      "time": 120,
+      "status": "incomplete",
+      "created_at": "2024-06-03T09:00:00Z"
+    },
+    {
+      "id": "L21",
+      "subject_id": "5b43",
+      "lesson_name": "Routing trong React Router",
+      "time": 90,
+      "status": "incomplete",
+      "created_at": "2024-06-04T09:00:00Z"
+    },
+    {
+      "id": "L22",
+      "subject_id": "6459",
+      "lesson_name": "Tổng quan về mạng máy tính",
+      "time": 60,
+      "status": "complete",
+      "created_at": "2024-07-01T09:00:00Z"
+    },
+    {
+      "id": "L23",
+      "subject_id": "6459",
+      "lesson_name": "Mô hình OSI",
+      "time": 75,
+      "status": "complete",
+      "created_at": "2024-07-02T09:00:00Z"
+    },
+    {
+      "id": "L24",
+      "subject_id": "6459",
+      "lesson_name": "TCP/IP và các tầng mạng",
+      "time": 90,
+      "status": "incomplete",
+      "created_at": "2024-07-03T09:00:00Z"
+    },
+    {
+      "id": "L25",
+      "subject_id": "6459",
+      "lesson_name": "Lập trình socket cơ bản",
+      "time": 100,
+      "status": "incomplete",
+      "created_at": "2024-07-04T09:00:00Z"
+    },
+    {
+      "id": "L26",
+      "subject_id": "7890",
+      "lesson_name": "Cơ sở dữ liệu quan hệ",
+      "time": 90,
+      "status": "complete",
+      "created_at": "2024-08-01T09:00:00Z"
+    },
+    {
+      "id": "L27",
+      "subject_id": "7890",
+      "lesson_name": "SQL nâng cao",
+      "time": 100,
+      "status": "incomplete",
+      "created_at": "2024-08-02T09:00:00Z"
+    },
+    {
+      "id": "L28",
+      "subject_id": "7890",
+      "lesson_name": "Thiết kế cơ sở dữ liệu",
+      "time": 110,
+      "status": "incomplete",
+      "created_at": "2024-08-03T09:00:00Z"
+    },
+    {
+      "id": "L29",
+      "subject_id": "9901",
+      "lesson_name": "Khái niệm lập trình hướng đối tượng",
+      "time": 80,
+      "status": "complete",
+      "created_at": "2024-09-01T09:00:00Z"
+    },
+    {
+      "id": "L30",
+      "subject_id": "9901",
+      "lesson_name": "Kế thừa và đa hình",
+      "time": 100,
+      "status": "incomplete",
+      "created_at": "2024-09-02T09:00:00Z"
+    },
+    {
+      "id": "L31",
+      "subject_id": "9901",
+      "lesson_name": "Đóng gói và trừu tượng hóa",
+      "time": 120,
+      "status": "incomplete",
+      "created_at": "2024-09-03T09:00:00Z"
+    },
+    {
+      "id": "L32",
+      "subject_id": "1123",
+      "lesson_name": "Giao tiếp trong nhóm",
+      "time": 45,
+      "status": "complete",
+      "created_at": "2024-10-01T09:00:00Z"
+    },
+    {
+      "id": "L33",
+      "subject_id": "1123",
+      "lesson_name": "Kỹ năng thuyết trình",
+      "time": 60,
+      "status": "incomplete",
+      "created_at": "2024-10-02T09:00:00Z"
+    },
+    {
+      "id": "L34",
+      "subject_id": "1123",
+      "lesson_name": "Giải quyết xung đột",
+      "time": 75,
+      "status": "incomplete",
+      "created_at": "2024-10-03T09:00:00Z"
     }
   ]
 }

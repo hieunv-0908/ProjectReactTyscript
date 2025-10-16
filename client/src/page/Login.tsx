@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../components/login/Header'
-import Form from '../components/login/Form'
 import Footer from '../components/login/Footer'
+import FormLogin from '../components/login/Form'
 
 function Login() {
     return (
@@ -17,7 +17,7 @@ function Login() {
             // border:"1px solid"
         }}>
             <Header></Header>
-            <Form></Form>
+            <FormLogin></FormLogin>
             <Footer></Footer>
         </div>
     )

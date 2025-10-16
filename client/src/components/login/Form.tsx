@@ -25,6 +25,7 @@ function Form() {
   const checkPass = (pass: string) => {
     return users.some(s => s.password === pass)
   }
+
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch])
@@ -114,15 +115,6 @@ function Form() {
           })
           return
         }
-        if (!checkbox) {
-          notification.warning({
-            message: "Thất bại",
-            description: "Chưa đồng ý với điều khoản",
-            placement: "topRight",
-            duration: 3,
-          })
-          return
-        }
         if (!checkEmail(email)) {
           notification.warning({
             message: "Thất bại",
@@ -141,7 +133,14 @@ function Form() {
           })
           return
         }
-        navigate("/home")
+        notification.success({
+          message: "Thành công",
+          description: "Đăng nhập thành công",
+          placement: "topRight",
+          duration: 3,
+        })
+        sessionStorage.setItem("user", JSON.stringify({ email }));
+        navigate("/manager/subject")
       }} style={{ width: "100%", height: "45px", fontSize: "16px" }}>
         Đăng nhập
       </Button>

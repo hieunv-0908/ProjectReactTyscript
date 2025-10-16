@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "antd";
 import { CheckCircleOutlined } from "@ant-design/icons";
 
 interface CourseCardProps {
@@ -9,33 +8,69 @@ interface CourseCardProps {
 
 const CourseCard: React.FC<CourseCardProps> = ({ title, sessions }) => {
     return (
-        <div className="course-card" style={{ width:"450px", display: "flex", alignItems: "start", justifyContent: "center", flexDirection: "column", paddingLeft: "24px", paddingTop: "20px", paddingBottom: "20px" }}>
-            <span style={{ fontSize: "24px", fontWeight: "400", lineHeight: "32px", fontStyle: "Regular" }}>{title}</span>
+        <div
+            className="course-card"
+            style={{
+                width: "420px",
+                display: "flex",
+                flexDirection: "column",
+                border: "1px solid #e5e5e5",
+                borderRadius: "12px",
+                padding: "20px",
+                background: "#fff",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+            }}
+        >
+            <span
+                style={{
+                    fontSize: "22px",
+                    fontWeight: "500",
+                    marginBottom: "10px",
+                    color: "#000000",
+                }}
+            >
+                {title}
+            </span>
+
             {sessions.length > 0 ? (
-                <ul style={{ display: "flex", flexDirection: "column" }}>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                     {sessions.map((s, i) => (
-                        <li key={i} style={{
-                            fontWeight: "400",
-                            fontStyle: "Regular",
-                            lineHeight: "32px",
-                            letterSpacing: "0%",
-                            textAlign: "center",
-                            color: "#000000",
-                            display: "flex",
-                            gap: "14px"
-                        }}>
-                            <CheckCircleOutlined style={{
-                                fontSize: "18px",
-                            }} /> Session {String(i + 1).padStart(2, "0")}: {s}
+                        <li
+                            key={i}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "10px",
+                                lineHeight: "28px",
+                                color: "#000000",
+                            }}
+                        >
+                            <CheckCircleOutlined style={{ color: "#52c41a" }} />
+                            <span>
+                                Session {String(i + 1).padStart(2, "0")}: {s}
+                            </span>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <p className="empty">Chưa có bài học nào</p>
-            )
-            }
-            {sessions.length > 0 && <a className="view-more" style={{ display: "flex", justifyContent: "center", marginTop: "15px", width: "100%" }}>Xem thêm</a>}
-        </div >
+                <p style={{ color: "#888" }}>Chưa có bài học nào</p>
+            )}
+
+            {sessions.length > 0 && (
+                <a
+                    className="view-more"
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginTop: "15px",
+                        color: "#1677ff",
+                    }}
+                    href="#"
+                >
+                    Xem thêm
+                </a>
+            )}
+        </div>
     );
 };
 
